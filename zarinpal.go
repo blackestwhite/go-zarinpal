@@ -6,8 +6,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
-	"io/ioutil"
-	"log"
 	"net/http"
 	"strconv"
 )
@@ -268,12 +266,8 @@ func (zarinpal *Zarinpal) request(method string, data interface{}, res interface
 		return err
 	}
 	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		return err
-	}
-	log.Println(string(body))
-	err = json.Unmarshal(body, res)
+
+	err = json.NewDecoder(resp.Body).Decode(&res)
 	if err != nil {
 		err = errors.New("zarinpal invalid json response")
 		return err
