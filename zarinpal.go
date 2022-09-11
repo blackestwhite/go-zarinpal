@@ -175,7 +175,7 @@ func (zarinpal *Zarinpal) PaymentVerification(amount int, authority string) (ver
 		return
 	}
 	statusCode = resp.Status
-	if resp.Status == 100 {
+	if resp.Status == 100 || resp.Status == 101 {
 		verified = true
 		refID = string(resp.RefID)
 	} else {
