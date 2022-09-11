@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/sinabakh/go-zarinpal-checkout"
+	"github.com/blackestwhite/go-zarinpal"
 )
 
 func ExampleNewZarinpal() {
