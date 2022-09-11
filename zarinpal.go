@@ -88,7 +88,7 @@ func NewZarinpal(merchantID string, sandbox bool) (*Zarinpal, error) {
 	}
 	apiEndPoint := "https://www.zarinpal.com/pg/rest/WebGate/"
 	paymentEndpoint := "https://www.zarinpal.com/pg/StartPay/"
-	if sandbox == true {
+	if sandbox {
 		apiEndPoint = "https://sandbox.zarinpal.com/pg/rest/WebGate/"
 		paymentEndpoint = "https://sandbox.zarinpal.com/pg/StartPay/"
 	}
